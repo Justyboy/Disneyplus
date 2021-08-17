@@ -9,16 +9,16 @@ function Viewers() {
            <img src="/images/viewers-disney.png" />
        </Wrap>
        <Wrap>
-           <img src="/images/viewers-disney.png" />
+           <img src="/images/viewers-pixar.png" />
        </Wrap>
        <Wrap>
-           <img src="/images/viewers-disney.png" />
+           <img src="/images/viewers-marvel.png" />
        </Wrap>
        <Wrap>
-           <img src="/images/viewers-disney.png" />
+           <img src="/images/viewers-starwars.png" />
        </Wrap>
        <Wrap>
-           <img src="/images/viewers-disney.png" />
+           <img src="/images/viewers-national.png" />
        </Wrap>
     </Container>
 
@@ -43,6 +43,7 @@ border-radius: 10px;
 cursor: pointer;
 border: 3px solid rgba(249, 249, 249, 0.1);
 transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+z-index: 100;
 
 img{
     width: 100%; 
