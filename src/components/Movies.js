@@ -26,7 +26,11 @@ function Movies() {
 export default Movies
 
 const Container = styled.div`
-
+  
+  h4{
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
 `
 
 const Content = styled.div`
