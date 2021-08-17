@@ -31,6 +31,7 @@ export default ImgSlider
 
 const Carousel = styled(Slider)`
 margin-top: 20px;
+z-index: 1;
 
 ul li button{
     &:before{

@@ -43,7 +43,7 @@ border-radius: 10px;
 cursor: pointer;
 border: 3px solid rgba(249, 249, 249, 0.1);
 transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-z-index: 100;
+z-index: 1;
 
 img{
     width: 100%; 
