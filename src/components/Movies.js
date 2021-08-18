@@ -1,23 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import {selectMovies} from "../features/movie/movieSlice"
+import {useSelector} from "react-redux"
 
 function Movies() {
+
+  const movies = useSelector(selectMovies); 
+
   return (
     <Container>
       <h4>Recommend for You</h4>
       <Content>
-      <Wrap>
-           <img src="/images/viewers-disney.png" />
+
+        {movies && movies.map((movie) => (
+          <Wrap>
+           <img src={movie.cardImg} />
        </Wrap>
-       <Wrap>
-           <img src="/images/viewers-disney.png" />
-       </Wrap>
-       <Wrap>
-           <img src="/images/viewers-disney.png" />
-       </Wrap>
-       <Wrap>
-           <img src="/images/viewers-disney.png" />
-       </Wrap>
+        ))
+      }
+      
+    
       </Content>
     </Container>
   )
@@ -62,3 +64,4 @@ img{
   border-color: rgba(249,249,249, 0.8);
 }
 `
+
