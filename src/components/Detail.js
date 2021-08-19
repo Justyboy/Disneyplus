@@ -1,18 +1,45 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
+import {useParams} from "react-router-dom"
+import db from "../firebase"
 
 function Detail() {
+
+  const {id} = useParams(); 
+  const [movie, setMovie] = useState(); 
+
+
+  useEffect( () => {
+//grab the movie info from db
+    db.collection("movies")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if(doc.exists){
+        //save movie data
+        setMovie(doc.data()); 
+      }else{
+        //redirect to home page
+
+      }
+    })
+
+  },[id]);
+
   return (
     <Container>
+     
+      {movie && (
+         <>
       <Background>
-      <img src="\images\jayme-mccolgan-IP1rSwr8R6o-unsplash.jpg" />
+      <img src={movie.backgroundImg} />
       </Background>
       <ImageTitle>
-      <img src="/images/viewers-disney.png" />
+      <img src={movie.titleImg}/>
       </ImageTitle>
       <Controls>
       <PlayButton>
-      <img src="/images/play-icon-black.png" />
+      <img src="/images/play-icon-black.png"/>
       <span>PLAY</span>
       </PlayButton>
       <TrailerButton>
@@ -28,12 +55,13 @@ function Detail() {
       </Controls>
 
       <SubTitle>
-        2018 - 7m - family, kids
+        {movie.subTitle}
       </SubTitle>
       <Description>
-        placeholder text description of movie
+        {movie.description}
       </Description>
-
+      </>
+    ) }
     </Container>
   )
 }
@@ -44,7 +72,7 @@ const Container = styled.div`
 min-height: calc(100vh - 70px); 
 padding: 0 calc(3.5vw + 5px); 
 position: relative;
-
+z-index: 1;
 
 `
 
@@ -74,7 +102,7 @@ img{
   width: 100%;
   height: 100%;
   object-fit: contain;
-
+ 
 }
 `
 
